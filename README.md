@@ -12,5 +12,5 @@ Depois -> if (employee.isMySsn(ssn)) return index;
 
 * O padrão apresentado no meu seminário de Padrões de Projeto foi o Iterator. Este padrão também foi usado neste código refatorado, pois no código antigo o iterator não era utilizado.
 Exemplos de métodos que utilizei o Iterator:
-returnIndexOfPerson.
-showAllEmployees.
+returnIndexOfPerson. <br>
+showAllEmployees. <br>
