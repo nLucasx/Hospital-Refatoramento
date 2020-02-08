@@ -7,6 +7,8 @@
 * No pacote Control, existe uma classe chamada Admin que tem como objetivo realizar todas as mudanças administrativas no sistema da clínica. Nela, existem métodos chamados AddEmployee (utilizando a técnica de Overload) que basicamente realizam a mesma operação de salvar o cadastro que foi solicitado na classe AdminManager, só possuem pequenas diferenças quanto ao tipo de empregado. Isso configura um Smell do tipo Duplicated Code.
 
 * Ainda na classe Admin, existe um método chamado returnIndexOfPerson, que tem como objetivo identificar em que posição do ArrayList se encontram as informações de um empregado da clínica. Esta busca é feita pelo cpf. No código antigo, existia um if para verificar se o cpf passado como parâmetro para o método era igual ao de um usuário cadastrado, porém esta verificação era feita através de um smell do tipo Message Chains. Para resolver este problema, eu criei um método novo, na classe Person dentro do pacote Model, chamado isMySsn. Este método retorna se os dois cpfs são iguais. Dessa forma o Message Chains pode ser retirado.
+Antes -> if (this.allemployees.get(i).getSsn().equals(ssn)) return i <br>
+Depois -> if (employee.isMySsn(ssn)) return index;
 
 * O padrão apresentado no meu seminário de Padrões de Projeto foi o Iterator. Este padrão também foi usado neste código refatorado, pois no código antigo o iterator não era utilizado.
 Exemplos de métodos que utilizei o Iterator:
