@@ -10,7 +10,7 @@ public class Nurse extends Employee{
         super(name, ssn, gender, age, 5000);
         this.specialization = specialization;
     }
-    public String getOccupation_area()
+    public String getOccupationArea()
     {
         return "Enfermeiro";
     }

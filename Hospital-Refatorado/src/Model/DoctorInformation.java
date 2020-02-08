@@ -8,7 +8,7 @@ public class DoctorInformation extends Employee
         this.crm = crm;
         this.specialization = specialization;
     }
-    public String getOccupation_area()
+    public String getOccupationArea()
     {
         return "Médico";
     }

@@ -7,7 +7,7 @@ public class GeneralServices extends Employee
         super(name, ssn, gender, age, 998);
     }
     
-    public String getOccupation_area()
+    public String getOccupationArea()
     {
         return "Serviço geral";
     }

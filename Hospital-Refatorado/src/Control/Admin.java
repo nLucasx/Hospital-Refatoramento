@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.PriorityQueue;
-
+import java.util.Iterator;
 public class Admin extends Account {
     private ArrayList <Employee> allemployees;
     private ProductsQueue HproductList;
@@ -144,30 +144,30 @@ public class Admin extends Account {
     	System.out.println("\nMateriais de Limpeza:");
     	this.CproductList.showQueue();
     }
-    public int return_index_of_person(String ssn)
+    public int returnIndexOfPerson(String ssn)
     {
-        for (int i = 0; i < this.allemployees.size(); i++)
+        Iterator <Employee> it = this.allemployees.iterator();
+        int index = 0;
+        while (it.hasNext())
         {
-            if (this.allemployees.get(i).getSsn().equals(ssn)) return i;
+        	Employee employee = it.next();
+        	if (employee.isMySsn(ssn)) return index;
+        	index++;
         }
         return -1;
     }
     public void showEmployee(int index)
     {
-    	System.out.println("\nNome: " + allemployees.get(index).getName());
-        System.out.println("CPF: " + allemployees.get(index).getSsn());
-        System.out.println("Área de atuação: " + allemployees.get(index).getOccupation_area());
-        System.out.println("Idade: " + allemployees.get(index).getAge() + "\n");
+    	System.out.println(allemployees.get(index));
     }
-    public void showEmployee()
+    public void showAllEmployees()
     {
-        for (int i = 0; i < allemployees.size(); i++)
-        {
-            System.out.println("\nNome: " + allemployees.get(i).getName());
-            System.out.println("CPF: " + allemployees.get(i).getSsn());
-            System.out.println("Área de atuação: " + allemployees.get(i).getOccupation_area());
-            System.out.println("Idade: " + allemployees.get(i).getAge() + "\n");
-        }
+        Iterator <Employee> it = allemployees.iterator();
+    	while (it.hasNext())
+    	{
+    		Employee e = it.next();
+    		System.out.println(e);
+    	}
     }
     public void deleteEmployee(int i)
     {

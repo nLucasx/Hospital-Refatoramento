@@ -26,5 +26,12 @@ public class Patient extends Person{
     public void setStatus(String status) {
         this.status = status;
     }
-    
+    public String toString()
+    {
+    	return "\nNome: " + this.getName() + "\n" +
+    		   "Idade: " + this.getAge() + "\n" + 
+    		   "Sexo: " + this.getGender() + "\n" +
+    		   "CPF: " + this.getSsn() + "\n";
+    			
+    }
 }

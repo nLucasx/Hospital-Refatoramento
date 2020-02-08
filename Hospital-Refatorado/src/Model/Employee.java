@@ -12,5 +12,14 @@ public abstract class Employee extends Person{
 	{
 		return this.salary;
 	}
-    public abstract String getOccupation_area();
+	public String toString()
+    {
+    	return "\nNome: " + this.getName() + "\n" +
+    			"CPF: " + this.getSsn() + "\n" +
+    			"Área de atuação: " + this.getOccupationArea() + "\n" +
+    			"Idade: " + this.getAge() + "\n";
+    			
+    }
+    public abstract String getOccupationArea();
+    
 }

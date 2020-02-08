@@ -25,18 +25,12 @@ public class Person {
     public String getSsn() {
         return ssn;
     }
-    
+    public boolean isMySsn(String otherSsn)
+    {
+    	return otherSsn.equals(this.ssn);
+    }
     public int getAge() {
         return age;
-    }
-    @Override
-    public String toString()
-    {
-    	return "\nNome: " + this.getName() + "\n" +
-    		   "Idade: " + this.getAge() + "\n" + 
-    		   "Sexo: " + this.getGender() + "\n" +
-    		   "CPF: " + this.getSsn() + "\n";
-    			
     }
     
 }

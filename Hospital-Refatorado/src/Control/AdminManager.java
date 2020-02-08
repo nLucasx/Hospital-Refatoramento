@@ -86,14 +86,14 @@ public class AdminManager {
 		if (!admin.isEmpty())
         {
             System.out.println("\nFuncionários cadastrados: ");
-            admin.showEmployee();
+            admin.showAllEmployees();
             Scanner input = new Scanner(System.in);
             String ssn;
             char choice;
             Exceptions filter = new Exceptions();
             int index = -1;
             ssn = filter.verifySsn("Digite o CPF (apenas números) >> ");
-            index = admin.return_index_of_person(ssn);
+            index = admin.returnIndexOfPerson(ssn);
             if (index == -1)
             {
             	System.out.println("Funcionário não encontrado!");          
@@ -120,7 +120,7 @@ public class AdminManager {
     	
     	if (admin.existSsn(ssn))
     	{
-    		admin.showEmployee(admin.return_index_of_person(ssn));
+    		admin.showEmployee(admin.returnIndexOfPerson(ssn));
     	}
     	else System.out.println("Funcionário não encontrado!");
     }
