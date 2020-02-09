@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import View.AdminScreen;
-
+import Model.*;
 public class AdminManager {
 	
 	private Admin admin;
@@ -37,6 +37,7 @@ public class AdminManager {
             {
                 String name = null, ssn = null, gender = null;
                 int age = 0;
+                Employee e = null;
                 Scanner input = new Scanner(System.in);
                 System.out.println("Entre com as informações do funcionário.");
                 name = filter.readString("Digite o nome >> ");
@@ -54,27 +55,29 @@ public class AdminManager {
                         crm = input.nextLine();
                         System.out.print("Digite a especialização >> ");
                         specialization = input.nextLine();
-                        admin.AddEmployee(age, name, gender, ssn, crm, specialization, doctors);
-                        System.out.println("Usuário cadastrado com sucesso!");
+                        Doctor doctor = new Doctor(name, ssn, gender, age, crm, specialization);
+                        admin.registerDoctor(doctor, doctors);
                     }
-                    else if (option == 2)
+                    else // este else é necessário, pois o sistema não utiliza o AddEmployee para cadastrar médicos
                     {
-                        String specialization;
-                        System.out.print("Digite a especialização >> ");
-                        specialization = input.nextLine();
-                        admin.AddEmployee(age, name, gender, ssn, specialization);
-                        System.out.println("Usuário cadastrado com sucesso!");
+	                    if (option == 2)
+	                    {
+	                        String specialization;
+	                        System.out.print("Digite a especialização >> ");
+	                        specialization = input.nextLine();
+	                        e = new Nurse(name, ssn, gender, age, specialization);
+	                    }
+	                    else if (option == 3)
+	                    {
+	                        e = new Recepcionist(name, ssn, gender, age);
+	                    }
+	                    else 
+	                    {
+	                    	e = new GeneralServices(name, ssn, gender, age);
+	                    }
+	                    admin.AddEmployee(e);
                     }
-                    else if (option == 3)
-                    {
-                        admin.AddEmployee(age, name, gender, ssn, 1);
-                        System.out.println("Usuário cadastrado com sucesso!");
-                    }
-                    else 
-                    {
-                    	admin.AddEmployee(age, name, gender, ssn, 2);
-                        System.out.println("Usuário cadastrado com sucesso!");
-                    }
+                    System.out.println("Funcionário cadastrado com sucesso!");
                 }
                 else System.out.println("Erro! Esse cpf já está cadastrado!");
             }

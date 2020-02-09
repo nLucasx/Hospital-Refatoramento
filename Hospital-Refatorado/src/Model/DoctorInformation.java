@@ -23,7 +23,8 @@ public class DoctorInformation extends Employee
     @Override
     public String toString()
     {
-    	return "Dr(a)." + super.getName() + " " + " - Especialização: " + this.getSpecialization() + "\n";
+    	return "Dr(a)." + super.getName() + " " + " - Especialização: " + this.getSpecialization() + "\n" +
+    			"CPF: " + super.getSsn() + "\n";
     }
     
 }

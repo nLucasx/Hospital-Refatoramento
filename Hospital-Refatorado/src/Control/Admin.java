@@ -30,31 +30,15 @@ public class Admin extends Account {
         CproductList.enqueue(new Products("Detergente", 50));
         CproductList.enqueue(new Products("Desinfetante", 0));
     }
-    public void AddEmployee(int age, String name, String gender, String ssn, String crm, String specialization, ArrayList<Doctor>accounts)
+    public void registerDoctor(Doctor doctor, ArrayList <Doctor> accounts)
     {
-        Doctor doctor = new Doctor(name, ssn, gender, age, crm, specialization);
-        accounts.add(doctor);
-        this.allemployees.add(doctor.getDoctor());
+    	 accounts.add(doctor); // cadastra um usuário no sistema para o médico.
+         this.allemployees.add(doctor.getDoctor());
     }
-    public void AddEmployee(int age, String name, String gender, String ssn, String specialization)
+    public void AddEmployee(Employee e)
     {
-        Employee nurse = new Nurse(name, ssn, gender, age, specialization);
-        this.allemployees.add(nurse);
-    }
-    public void AddEmployee(int age, String name, String gender, String ssn, int op)
-    {
-        if (op == 1)
-        {
-        	Employee recepcionist = new Recepcionist(name, ssn, gender, age);
-        	this.allemployees.add(recepcionist);
-        }
-        else
-        {
-        	Employee gen_service = new GeneralServices(name, ssn, gender, age);
-            this.allemployees.add(gen_service);
-        }
-    }
-    
+    	this.allemployees.add(e);
+    }  
     public double getBalance() {
 		return balance;
 	}
